@@ -28,7 +28,3 @@ script:
   - ansible-playbook -i localhost, --syntax-check tests/test.yml
   - ansible-lint tests/test.yml
   - ansible-playbook -i test, tests/test.yml
-
-notifications:
-  email: false
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/

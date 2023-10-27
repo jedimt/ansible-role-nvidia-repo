@@ -1,8 +1,8 @@
 galaxy_info:
-  author: Akihiro Uchida
-  description: ansible role to add NVIDIA CUDA/Machine Learning repository
+  author: jedmit
+  description: Ansible role to add NVIDIA CUDA/Machine Learning repository
   license: CC0
-  min_ansible_version: 2.4
+  min_ansible_version: "7"
   platforms:
   - name: Ubuntu
     versions:

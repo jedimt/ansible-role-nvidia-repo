@@ -1,29 +1,22 @@
 ---
-
-- name: gnupg package is installed
-  apt:
+- name: Gnupg package is installed
+  ansible.builtin.apt:
     name: gnupg
     state: present
-    install_recommends: no
+    install_recommends: false
     update_cache: "{{ 'yes' if not ansible_check_mode | bool else 'no' }}"
 
-- name: apt key for NVIDIA is added
-  apt_key:
-    url: "https://developer.download.nvidia.com/compute/cuda/repos/{{ nvidia_repo_distarch }}/7fa2af80.pub"
-    id: 7fa2af80
-    state: present
+- name: Add apt key for NVIDIA
+  ansible.builtin.get_url:
+    url: "https://developer.download.nvidia.com/compute/cuda/repos/{{ nvidia_repo_debian_version }}/{{ ansible_architecture }}/{{ nvidia_repo_apt_key }}"
+    dest: /etc/apt/trusted.gpg.d/nvidia.asc
+    mode: '0644'
+    force: true
 
 - name: NVIDIA CUDA repository is registered
-  apt_repository:
-    repo: 'deb http://developer.download.nvidia.com/compute/cuda/repos/{{ nvidia_repo_distarch }} /'
+  ansible.builtin.apt_repository:
+    repo: 'deb https://developer.download.nvidia.com/compute/cuda/repos/{{ nvidia_repo_debian_version }}/{{ ansible_architecture }} /'
     state: present
     filename: cuda
     update_cache: "{{ 'yes' if not ansible_check_mode | bool else 'no' }}"
   register: nvidia_repo_cuda_apt_repo
-
-- name: NVIDIA Machine Learning repository is registered
-  apt_repository:
-    repo: 'deb http://developer.download.nvidia.com/compute/machine-learning/repos/{{ nvidia_repo_distarch }} /'
-    state: present
-    filename: machine-learning
-    update_cache: "{{ 'yes' if not ansible_check_mode | bool else 'no' }}"

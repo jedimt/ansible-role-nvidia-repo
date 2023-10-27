@@ -1,0 +1,6 @@
+---
+# NVIDIA CUDA Signing key
+nvidia_repo_apt_key: '3bf863cc.pub'
+
+# Maps to "distro" for the CUDA URL signing key path - ex. 'ubuntu2204'
+nvidia_repo_debian_version: "{{ ansible_distribution | lower }}{{ ansible_distribution_version | replace('.', '') }}"
