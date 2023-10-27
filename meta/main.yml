@@ -7,8 +7,9 @@ galaxy_info:
   platforms:
   - name: Ubuntu
     versions:
-    - xenial
-    - bionic
+    - jammy
   galaxy_tags:
     - docker
+    - nvidia
+    - nebulon
 dependencies: []

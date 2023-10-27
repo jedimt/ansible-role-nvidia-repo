@@ -1,7 +1,7 @@
 jedimt.nvidia-repo
 ==================
 
-Ansible role to add NVIDIA CUDA/Machine Learning apt repository
+Ansible role to add NVIDIA CUDA apt repository
 
 Example Playbook
 ----------------
@@ -9,7 +9,7 @@ Example Playbook
 ```
 - hosts: servers
   roles:
-     - role: jedimit.nvidia-repo
+     - role: jedimt.nvidia_repo
 ```
 
 License
