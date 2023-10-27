@@ -1,5 +1,5 @@
 galaxy_info:
-  author: jedmit
+  author: jedimt
   description: Ansible role to add NVIDIA CUDA/Machine Learning repository
   license: CC0
   min_ansible_version: "7"
